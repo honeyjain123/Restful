@@ -1,0 +1,1 @@
+create table developers(id number(10),name varchar2(20),skills varchar2(30));
