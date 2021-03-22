@@ -5,13 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
+@ApiModel(description = "Developers Table")
 public class Developers {
 	//Entity Class for creating a table in H2 database
 	@Id
-	
+	@ApiModelProperty(notes = "ID for unique identification of a developer")
 	private int id;
+	@ApiModelProperty(notes = "Developer Name")
 	private String name;
+	@ApiModelProperty(notes = "Developer Skills")
 	private String skills;
 	public int getId() {
 		return id;

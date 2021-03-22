@@ -16,13 +16,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
+
 public class DeveloperController {
 //class acting as a controller to execute all requests from repository
 	@Autowired
 	Repo repo;
 	
-	@GetMapping("/developers")
+	@GetMapping("/developers/")
+	@ApiOperation(value = "Display All Developers", notes = "It fetches all the developers from H2 database")
 	public List<Developers> getdeveloper()
 	//method to display all developers from database
 	{
@@ -30,13 +34,15 @@ public class DeveloperController {
 	}
 	
 	@GetMapping("/developers/{id}")
+	@ApiOperation(value = "Display A Developer By its Id", notes = "It fetches the particular developer from H2 database by its Id")
 	public Optional<Developers> getdeveloperbyid(@PathVariable("id") int id)
 	//method to get a particular developer from its id
 	{
 		return repo.findById(id); //predefined findById method from repository to get details of a particular developer
 	}
 	
-	@PostMapping("/developers")
+	@PostMapping("/developers/")
+	@ApiOperation(value = "Creates a new Developer", notes = "It creates a new developer and save it in H2 database")
 	public String postmethod(Developers developer)
 	//method to create a new developer
 	{
@@ -45,6 +51,7 @@ public class DeveloperController {
 	}
 	
 	@DeleteMapping("/developers/{id}")
+	@ApiOperation(value = "Deletes a particular Developer", notes = "It deletes a particular developer by its Id")
 	public String deletemethod(@PathVariable("id") int id)
 	//method to delete an existing developer
 	{
@@ -53,7 +60,8 @@ public class DeveloperController {
 		return "Developer is deleted successfully";
 	}
 	
-	@PutMapping(path="/developers", consumes = {"application/json"})
+	@PutMapping(path="/developers/", consumes = {"application/json"})
+	@ApiOperation(value = "Update a particluar Developer", notes = "It updates a particular developer")
 	public String updatemethod(@RequestBody Developers developer)
 	//method to update details of a particular developer
 	{
