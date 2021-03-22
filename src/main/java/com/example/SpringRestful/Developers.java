@@ -1,4 +1,4 @@
-package com.example.SpringRestfulTest;
+package com.example.SpringRestful;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Developers {
+	//Entity Class for creating a table in H2 database
 	@Id
 	
 	private int id;
