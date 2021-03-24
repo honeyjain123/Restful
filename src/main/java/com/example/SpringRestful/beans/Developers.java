@@ -1,4 +1,4 @@
-package com.example.SpringRestful;
+package com.example.SpringRestful.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 
 @Entity
 @ApiModel(description = "Developers Table")
